@@ -11,13 +11,12 @@ def create_database():
             host="localhost", user="Japheth", password="tygo9843hy.m"
         )
 
-        if connection.is_connected():
-            cursor = connection.cursor()
-            # Create database if it doesn't exist
-            cursor.execute("CREATE DATABASE IF NOT EXISTS alx_book_store")
-            print("Database 'alx_book_store' created successfully!")
+        cursor = connection.cursor()
+        # Create database if it doesn't exist
+        cursor.execute("CREATE DATABASE IF NOT EXISTS alx_book_store")
+        print("Database 'alx_book_store' created successfully!")
 
-    except Error as e:
+    except mysql.connector.Error as e:
         print("Error while connecting to MySQL:", e)
 
     finally:
